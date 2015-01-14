@@ -1,0 +1,35 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:x="http://java.sun.com/jstl/xml" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:spring="http://www.springframework.org/tags" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+	<jsp:output omit-xml-declaration="yes" />
+	<table border="">
+
+		<c:choose>
+			<c:when test="${empty userAgent}">
+				<tr>
+					<td class="ui-info">${ieMessage}</td>
+				</tr>
+			</c:when>
+			<c:otherwise>
+				<tr>
+					<td colspan="2" class="ui-info">${ieMessage}</td>
+				</tr>
+				<tr>
+					<td>User Agent</td>
+					<td>${ua}</td>
+				</tr>
+				<tr>
+					<td>Operating System</td>
+					<td>${userAgent.operatingSystem.name}</td>
+				</tr>
+				<tr>
+					<td>Browser Name</td>
+					<td>${userAgent.browser.name}</td>
+				</tr>
+				<tr>
+					<td>Browser Rendering Engine</td>
+					<td>${userAgent.browser.renderingEngine}</td>
+				</tr>
+			</c:otherwise>
+		</c:choose>
+	</table>
+
+</jsp:root>
